@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>{{title}}</h1>
+  <table>
+    <thead>
+      <th>Email</th>
+      <th>Importance</th>
+      <th>Subject</th>
+      <th>Content</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let email of emails">
+        <td>{{ email.email | lowercase }}</td>
+        <td>
+          <span *ngIf="email.importance">High</span>
+          <span *ngIf="!email.importance">Low</span>
+        </td>
+        <td>{{ email.subject }}</td>
+        <td>{{ email.content }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
