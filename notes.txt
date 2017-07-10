@@ -1,0 +1,13 @@
+Access Angular's CLI:
+  npm install -g @angular/cli
+
+Start a new project:
+  ng new <projectName>
+
+Create component, service and class within a project:
+  ng generate component my-component
+  ng generate service my-service
+  ng generate class my-class
+
+Launch app at http://localhost:4200:
+  ng serve
