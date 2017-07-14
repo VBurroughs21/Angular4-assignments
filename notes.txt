@@ -11,3 +11,27 @@ Create component, service and class within a project:
 
 Launch app at http://localhost:4200:
   ng serve
+
+
+Interpolation to print variable in template
+  {{ variableName }} print value of 'variableName'
+  <input [value]='number'> print value of 'number' variable
+  <input value='number'> print name of variable 'number'
+
+
+Event Listeners
+  <button (click)="functionToRun()">
+
+Forms w/ Validations
+  <form (submit)="functionToRun()">
+    <input type="text" 
+      name="email"
+      required 
+      minlength="4" 
+      maxlength="24"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+    />
+
+  Disply validation errors
+    {{ email.errors | json }}
