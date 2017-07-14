@@ -1,0 +1,10 @@
+<div style="text-align:center">
+  <h2>{{title}}</h2>
+  <button 
+    *ngFor="let button of buttons; let idx = index" 
+    (click)="switchButton(idx)" 
+    [ngClass]="{on: button === 'on'}"
+  >
+    {{button}}
+  </button>
+</div>

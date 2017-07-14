@@ -1,0 +1,9 @@
+button {
+  border: 5px solid saddlebrown;
+  margin: 0 1px;
+  background-color: red;
+}
+
+.on {
+  background-color: green;
+}
