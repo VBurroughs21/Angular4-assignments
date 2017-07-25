@@ -1,0 +1,5 @@
+.errorMessage {
+  color: red;
+  font-size: 10px;
+  display: inline-block;
+}
