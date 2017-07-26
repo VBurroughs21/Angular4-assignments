@@ -1,0 +1,10 @@
+<h1>Power Levels</h1>
+<div>
+  <h3>Initial Power Level:</h3>
+  <form>
+    <input type="number" name="power" min="1" max="100" [(ngModel)]="power">
+    <input type="submit" value="Calculate Powers">
+  </form>
+</div>
+
+<app-power-comonent *ngFor="let section of sections" [info]="section" [power]="power * section.power"></app-power-comonent>

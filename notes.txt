@@ -35,3 +35,7 @@ Forms w/ Validations
 
   Disply validation errors
     {{ email.errors | json }}
+
+
+Form Problems
+  import { FormsModule } from '@angular/forms';
