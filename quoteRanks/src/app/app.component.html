@@ -1,0 +1,38 @@
+<h1>Quote Ranks</h1>
+
+<h3>Add a Quote</h3>
+<form #quoteForm="ngForm" (submit)="formSubmit()">
+  <textarea 
+    rows="" 
+    cols=""
+    name="quote"
+    required
+    minlength="4"
+    [(ngModel)]="quote.quote"
+    #quoteText="ngModel"
+  >
+  </textarea>
+  Author <input 
+    type="text" 
+    name="author" 
+    required 
+    minlength="1"
+    [(ngModel)]="quote.author"
+    #quoteAuthor="ngModel"
+  />
+  <input type="submit" value="Add Quote" [disabled]="!quoteForm.valid">
+</form>
+
+<div>
+  <app-quote-controller 
+    *ngFor="let item of quotes; let i = index"
+    [quote]="item.quote" 
+    [author]="item.author"
+    [rating]="item.rating"
+    [index]="i"
+    (voteUp)="increaseRating($event)"
+    (voteDown)="decreaseRating($event)"
+    (deleteQuote)="delete($event)"
+  >
+  </app-quote-controller>
+</div>
