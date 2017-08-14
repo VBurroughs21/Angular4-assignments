@@ -1,0 +1,7 @@
+<h2>Start Item component</h2>
+
+{{item | json}}
+
+<p>{{index}}</p>
+<button (click)="minusOne($event)" [disabled]="item.price <= 0">Decrease Price by $1</button>
+

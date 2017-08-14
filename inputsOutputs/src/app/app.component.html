@@ -1,0 +1,8 @@
+<app-item
+  *ngFor="let i of items; let childIndex = index"
+  [item] = i
+  [index] = childIndex
+  (priceDown) = decreasePrice($event)
+>
+</app-item>
+
