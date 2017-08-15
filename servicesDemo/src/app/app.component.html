@@ -1,0 +1,7 @@
+<button (click)="getDog()">Get Dog Image</button>
+<form (submit)="onSubmit()">
+  <input type="text" name="breed" [(ngModel)]="breed" #breedErr="ngModel"/>
+  <input type="submit" value="Get breed" />
+</form>
+
+<img src="{{imageUrl}}"/>
