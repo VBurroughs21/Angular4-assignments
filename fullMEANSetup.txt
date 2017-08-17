@@ -1,0 +1,72 @@
+Back-end configuration
+
+1. node_modules
+  - npm init -y
+  - npm install express --save
+  - npm install body-parser --save
+  - npm install mongoose --save
+  - npm install bcyrpt --save
+
+2. Make server.js file
+  - change bodyParser.urlEncoded to app.use(bodyParser.json())
+
+3. In the server folder make a config folder
+  - Create file routes.js
+  - Create file mongoose.js
+    + Change name of DB
+
+4. Create controllers folder in server folder
+  - In controllers folder create a file for each controller
+
+5. Create models folders in server folder
+  - In models folder create a file for each collection
+
+6. In controllers files create some functions to get and post data to the DB
+
+7.  In routes, route the user to the correct controller functions
+
+8. Sudo mongod
+
+9. Test API
+
+
+Add Front-end Angular
+
+1. Run "ng new public" in project folder
+
+2. in public folder run "ng build -w"
+
+3.in server.js change app.use(express.static(path.join(__dirname, './public/dist)))
+
+4. Declare all other routes to be handled by Angular
+  - in server/config/routes.js
+    app.all('*', function(req, res) {
+      res.sendFile(path.resolve('./public/dist/index.html))
+    })
+
+5. Make services, components, and class
+  - ng generate component <componentName>
+  - ng generate service <serviceName>
+    + Add the service to the app.module.ts (import and add to the providers array)
+  - ng generate class <className>
+
+6.Set up classes
+  - make sure it matches the models
+
+7. Add imports to app.module.ts
+  - FormsModule
+  - HttpModule
+
+8. Build html
+
+
+
+** If you get an error no dist/index.html check for typos/errors in your Angular code then build again.
+
+
+
+3 Terminal Tabs
+  1. sudo mongod from anywhere
+  2. nodemon server.js from project folder
+  3. ng build -w from public folder
+

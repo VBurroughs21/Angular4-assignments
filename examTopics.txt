@@ -1,0 +1,33 @@
+1. Creating and running a Node/Express server
+  - Routing
+  - Using static files
+  - requiring dependencies
+
+2. npm installation
+
+3. Mongo queries
+  - create, read, update, delete (CRUD)
+
+4. Mongoose schema creation
+
+5. Mongoose usage of Mongo queries and callbacks. 
+
+6. Mongoose validations with password encryption
+
+7. Mongoose model associations. (1 to many)
+
+8. Install angular
+
+9. Creat angular services, controllers, and classes
+
+10. Angular form validations
+
+11. Passign data between components (Input/Output)
+
+12. Angular services HTTP request to the backend
+
+13. Redirecting in Angular
+
+14. Setting up Angular routes and using route parameters
+
+15. Angular routing between components

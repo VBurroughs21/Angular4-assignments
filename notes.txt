@@ -42,3 +42,6 @@ Form Problems:
 
 Http Problems:
   import { HttpModule } from '@angular/http';
+
+Start Project w/ Routing
+  ng new <projectName> --routing
