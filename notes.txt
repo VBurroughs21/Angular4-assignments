@@ -20,7 +20,7 @@ Interpolation to print variable in template
 
 
 Event Listeners
-  <button (click)="functionToRun()">
+  <button (click)="functionToRun($event)">
 
 Forms w/ Validations
   <form (submit)="functionToRun()">
@@ -38,10 +38,49 @@ Forms w/ Validations
 
 
 Form Problems:
-  import { FormsModule } from '@angular/forms';
+  In app.module.ts
+    import { FormsModule } from '@angular/forms';
 
 Http Problems:
-  import { HttpModule } from '@angular/http';
+  In app.module.ts
+    import { HttpModule } from '@angular/http';
+  In service:
+    import { Http } from '@angular/http';
+    constructor(private _http: Http) { }
+    this._http.get('/tasks').subscribe( 
+      (response) => {  },
+      (error) => {  }
+    ); 
 
-Start Project w/ Routing
+Start Project w/ Routing:
   ng new <projectName> --routing
+
+
+@TODO add route param
+Define routes in app-routing.module.ts:
+  Routes = [
+    { path: '', pathMatch: 'full', component: LandingComponent },
+    { path: 'home/:id', component: HomeComponent },
+
+    { path: 'task', component: TaskComponent, children:[
+      { path: 'public', component: TaskPublicComponent },
+      { path: 'private', component: TaskPrivateComponent }
+    ]}
+    { path: 'gohome', redirectTo: '/home' },
+  ]
+  
+Routing Tag in app.component.html:
+  <router-outlet></router-outlet>
+
+Routes in html:
+  Link for 'http://localhost:4200/notes/7'
+    <a [routerLink]="['notes', note.id ]">Home</a>
+
+
+Route params in components:
+  import { ActivatedRoute } from '@angular/router';
+  constructor(private _route: ActivatedRoute) {
+    this._route.paramMap.subscribe( params => {
+          console.log(params.get('id'));
+    })
+  }
