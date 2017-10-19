@@ -18,7 +18,7 @@
 
 8. Install angular
 
-9. Creat angular services, controllers, and classes
+9. Create angular services, controllers, and classes
 
 10. Angular form validations
 

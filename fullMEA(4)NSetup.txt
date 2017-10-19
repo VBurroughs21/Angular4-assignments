@@ -1,0 +1,92 @@
+1. run mongod
+
+2. Make project folder with following structure
+  - app.js
+  - server folder
+  - new angular app (ng new frontEnd --routing)
+  - package.json
+
+3. In package.json file (copy from other project)
+  - express
+  - mongoose
+  - body-parser
+  - bcrypt
+
+4. run npm install in root project folder
+
+5. Take code from previous server.js file put in app.js
+
+6. In server folder create these folders:
+  - config
+  - controllers
+  - models
+
+7. In config folder
+  - routes.js
+  - mongoose.js
+
+8. In mongoose.js file change DB name
+
+9. Create a controller in the controllers folder
+
+10. Create a model in the models folder
+
+11. Create a test route
+
+12. Change express.static route in app.js
+  - app.use(express.static(path.join(__dirname, '/my-angular-app/dist')));
+
+13. Change body parser config in app.js
+  - app.use(bodyParser.json());
+
+14. Start servers to test backend
+  - nodemon app.js (in root project folder)
+  - ng build -w (in frontEnd folder)
+
+Backend server is working
+
+Front end configuation:
+
+15. Create a service 
+  - ng g s api
+  - provide service in app.module.ts
+
+16. Import HttpModule and FormsModule in app.module.ts
+  - import { HttpModule } from '@angular/http';
+  - imports: [
+      BrowserModule,
+      AppRoutingModule,
+      HttpModule
+    ]
+
+17. Import Service into Component
+  - import { ApiService } from './api.service';
+  - constructor(private _apiService: ApiService) {}
+
+18. Import Http into Service
+  - import { Http } from '@angular/http';
+  - constructor(private _http: Http) {}
+  - import 'rxjs/add/operator/map';
+  - import 'rxjs/add/operator/toPromise';
+
+19. Construct promise in Service
+  - testApi() {
+    return this._http.get('/api/test')
+    .map(response => response.json())
+    .toPromise();
+  }
+
+20. Hit api through Service from Component
+  - ngOnInit() {
+    this._apiService.testApi()
+    .then((data) => {
+      this.test = data
+    });
+  }
+
+21. Add final safe catch route to backend routes.js file
+  -  app.all("*", (req, res, next) => {
+    res.sendFile(path.resolve("./public/dist/index.html"))
+  });
+
+Angular Frontend Routes -> Component -> Service -> Backend Routes -> Controller (talk to DB send response) -> Backend Routes -> Service -> Component -> HTML
